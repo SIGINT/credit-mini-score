@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_id: 1
+  percentage_ownership: 1
+  last_name: MyString
+  first_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone_number: MyString
+  email: MyString
+  birthdate: 2016-03-28
+  social_security_number: MyString
+  drivers_license_number: MyString
+  estimated_liquid_assets: 1
+  estimated_outstanding_debt: 1
+  gender: MyString
+
+two:
+  business_id: 1
+  percentage_ownership: 1
+  last_name: MyString
+  first_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone_number: MyString
+  email: MyString
+  birthdate: 2016-03-28
+  social_security_number: MyString
+  drivers_license_number: MyString
+  estimated_liquid_assets: 1
+  estimated_outstanding_debt: 1
+  gender: MyString
