@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_id: MyString
+  application_date: 2016-03-28
+  requested_principle: 1
+  requested_term_months: 1
+  loan_mini_score: 1
+
+two:
+  business_id: MyString
+  application_date: 2016-03-28
+  requested_principle: 1
+  requested_term_months: 1
+  loan_mini_score: 1
