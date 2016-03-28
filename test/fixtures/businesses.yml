@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  legal_name: MyString
+  employer_identification_number: MyString
+  organization_type: MyString
+  address: MyString
+  city: MyString
+  county: MyString
+  state: MyString
+  zip: MyString
+  phone_number: MyString
+  fax_number: MyString
+  email: MyString
+  founded_date: 2016-03-28
+  estimated_annual_revenue: 1
+  business_url: MyString
+  num_employees: 1
+  updated_date: 2016-03-28 03:12:48
+
+two:
+  legal_name: MyString
+  employer_identification_number: MyString
+  organization_type: MyString
+  address: MyString
+  city: MyString
+  county: MyString
+  state: MyString
+  zip: MyString
+  phone_number: MyString
+  fax_number: MyString
+  email: MyString
+  founded_date: 2016-03-28
+  estimated_annual_revenue: 1
+  business_url: MyString
+  num_employees: 1
+  updated_date: 2016-03-28 03:12:48
