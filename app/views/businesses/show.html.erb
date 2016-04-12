@@ -1,0 +1,46 @@
+<%- model_class = Business -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:legal_name) %>:</strong></dt>
+  <dd><%= @business.legal_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:founded_date) %>:</strong></dt>
+  <dd><%= @business.founded_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:num_employees) %>:</strong></dt>
+  <dd><%= @business.num_employees %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @business.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @business.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @business.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:business_url) %>:</strong></dt>
+  <dd><%= @business.business_url %></dd>
+</dl>
+<hr>
+
+<h3>Ownership</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:percentage_ownership) %></th>
+      <th><%= model_class.human_attribute_name(:phone_number) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @business.business_owners.each do |owner| %>
+      <tr>
+        <td><%= owner.last_name %></td>
+        <td><%= owner.first_name %></td>
+        <td><%= "#{owner.percentage_ownership}%" %></td>
+        <td><%= owner.phone_number %></td>
+        <td><%= owner.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
