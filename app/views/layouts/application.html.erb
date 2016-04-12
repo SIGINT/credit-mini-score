@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= nav_bar fixed: :top, brand: 'CreditMiniScore &udarr;'.html_safe do %>
+    <%= menu_group do %>
+      <%= menu_item "Home", root_path %>
+      <%= menu_item "Link 1", root_path %>
+      <%= menu_item "Link 2", root_path %>
+    <% end %>
+  <% end %>
+  <br/><br/>
+  <div class="container">
+	<%= yield %>
+  </div>
 </body>
 </html>
