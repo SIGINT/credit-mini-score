@@ -1,0 +1,18 @@
+<%= f.form_group do %>
+  <%= f.fields_for @owner do |of| %>
+    <%= of.text_field :first_name, hide_label: true, placeholder: 'First Name' %>
+    <%= of.text_field :last_name, hide_label: true, placeholder: 'Last Name' %>
+    <%= of.number_field :percentage_ownership, hide_label: true, placeholder: 'Ownership', append: '%' %>
+    <%= of.date_select :birthdate, { order: [ :month, :day, :year ], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+    <%= of.text_field :city, hide_label: true, placeholder: 'City' %>
+    <%= of.text_field :state, hide_label: true, placeholder: 'State' %>
+    <%= of.text_field :zip, hide_label: true, placeholder: "Zip" %>
+    <%= of.phone_field :phone_number, hide_label: true, placeholder: 'Phone' %>
+    <%= of.email_field :email, hide_label: true, placeholder: 'Email' %>
+    <%= of.text_field :social_security_number, hide_label: true, placeholder: 'SSN' %>
+    <%= of.text_field :drivers_license_number, hide_label: true, placeholder: 'Drivers License #' %>
+    <%= of.text_field :estimated_liquid_assets, prepend: '$', append: '.00', hide_label: true, placeholder: 'Est. Liquid Assets' %>
+    <%= of.number_field :estimated_outstanding_debt, prepend: '$', append: '.00', hide_label: true, placeholder: 'Est. Outst. Debt' %>
+  <% end %>
+<% end %>
+<hr>

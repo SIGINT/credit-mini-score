@@ -1,0 +1,25 @@
+<%- model_class = LoanApplication -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:business_id) %>:</strong></dt>
+  <dd><%= link_to(@business.legal_name, business_path(@business)) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:application_date) %>:</strong></dt>
+  <dd><%= @loan_application.application_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:requested_principle) %>:</strong></dt>
+  <dd><%= @loan_application.requested_principle %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:requested_term_months) %>:</strong></dt>
+  <dd><%= @loan_application.requested_term_months %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:loan_mini_score) %>:</strong></dt>
+  <dd><%= @loan_application.loan_mini_score %></dd>
+</dl>
+
+<%= link_to t('.back', default: t("helpers.links.back")),
+              loan_applications_path, :class => 'btn btn-default' %>
+<%= link_to t('.destroy', default: t("helpers.links.destroy")),
+              loan_application_path(@loan_application),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

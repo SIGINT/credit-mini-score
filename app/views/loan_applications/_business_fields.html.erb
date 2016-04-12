@@ -1,0 +1,19 @@
+<%= f.form_group do %>
+  <%= f.fields_for @business do |bf| %>
+    <%= bf.text_field :legal_name, hide_label: true, placeholder: 'Legal Name' %>
+    <%= bf.text_field :employer_identification_number, hide_label: true, placeholder: 'EIN' %>
+    <%= bf.select :organization_type, Business.org_types, prompt: 'Select type' %>
+    <%= bf.text_field :address, hide_label: true, placeholder: 'Address' %>
+    <%= bf.text_field :city, hide_label: true, placeholder: 'City' %>
+    <%= bf.text_field :county, hide_label: true, placeholder: 'Country' %>
+    <%= bf.text_field :state, hide_label: true, placeholder: 'State' %>
+    <%= bf.text_field :zip, hide_label: true, placeholder: 'Zip' %>
+    <%= bf.phone_field :phone_number, hide_label: true, placeholder: 'Phone' %>
+    <%= bf.phone_field :fax_number, hide_label: true, placeholder: 'Fax' %>
+    <%= bf.email_field :email, hide_label: true, placeholder: 'Email' %>
+    <%= bf.date_select :founded_date %>
+    <%= bf.text_field :estimated_annual_revenue, prepend: '$', append: '.00', hide_label: true, placeholder: 'Est. Annual Revenue' %>
+    <%= bf.url_field :business_url, hide_label: true, placeholder: 'Business URL' %>
+    <%= bf.number_field :num_employees, hide_label: true, placeholder: '# Employees' %>
+  <% end %>
+<% end %>

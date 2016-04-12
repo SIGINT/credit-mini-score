@@ -1,0 +1,48 @@
+<br/>
+<%= bootstrap_form_for(@application, layout: :inline) do |f| %>
+
+  <% if @application.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @application.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <br/>
+
+  <h3>Loan Information</h3>
+  <%= f.form_group do %>
+    <%= f.text_field :requested_principle, prepend: '$', append: '.00', hide_label: true, placeholder: 'Requested Principle' %>
+    <%= f.select :requested_term_months, LoanApplication.terms, prompt: 'Select Term', label: 'Term (months):' %>
+  <% end %>
+  <br/>
+
+  <h3>Business Information</h3>
+  <%= render partial: 'business_fields', locals: { f: f } %>
+  <br/>
+  <br/>
+
+  <h3>Business Ownership</h3>
+  <% for owner in @owners %>
+    <%= render partial: 'owner_fields', locals: { f: f } %>
+  <% end %>
+  <button type="button" class="btn btn-success btn-sm">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add'l Owner
+  </button>
+  <br/>
+  <br/>
+
+  <%= f.form_group do %>
+    <%= f.submit 'Submit Application', class: 'btn btn-primary' %>
+    <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+              loan_applications_path, class: 'btn btn-default' %>
+  <% end %>
+
+<% end %>
