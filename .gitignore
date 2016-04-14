@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+# Ignore sensitive environment variables
+/config/environment_variables.yml
+
 
 
 
@@ -57,3 +60,7 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+
+# Ignore application configuration
+/config/application.yml

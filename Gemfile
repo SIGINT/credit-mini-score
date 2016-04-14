@@ -20,6 +20,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Date/Time validation for Rails 4
 gem 'validates_timeliness', '~> 4.0'
 
+# Ruby web-crawling gem
+gem 'mechanize'
+
+#
+gem 'omniauth-facebook'
+
+# Protects sensitive environment variables
+gem 'figaro'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
