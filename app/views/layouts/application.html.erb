@@ -12,7 +12,7 @@
       <%= menu_item "Home", root_path %>
       <%= menu_item "Link 1", root_path %>
       <%= menu_item "Link 2", root_path %>
-      <% if session[:omniauth].nil? %>
+      <% if connected_to_fb? %>
         <%= menu_item "FB connected: <span class='glyphicon glyphicon-remove' aria-hidden='true'></span>".html_safe %>
       <% else %>
         <%= menu_item "FB: <span class='glyphicon glyphicon-ok' aria-hidden='true'></span>".html_safe %>

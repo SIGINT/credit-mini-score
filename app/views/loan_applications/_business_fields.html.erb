@@ -20,6 +20,11 @@
     <%= bf.url_field :business_url, hide_label: true, placeholder: 'Business URL' %>
     <%= bf.number_field :num_employees, hide_label: true, placeholder: '# Employees' %>
   <% end %>
-  <br/>
-  <h4>Add facebook data:</h4><%= link_to image_tag("facebook-icon.jpg", border: 0, width: 40, height: 40, alt: 'add facebook data'), '/auth/facebook' %>
+
+  <!-- DISPLAY FB ICON IF NOT ALREADY CONNECTED TO FB -->
+  <% if connected_to_fb? %>
+    <br/>
+    <h4>Add facebook data:</h4>
+    <%= link_to image_tag("facebook-icon.jpg", border: 0, width: 40, height: 40, alt: 'add facebook data'), '/auth/facebook' %>
+  <% end %>
 <% end %>
