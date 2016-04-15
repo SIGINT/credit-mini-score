@@ -120,6 +120,7 @@ def create_applications
       application_date: get_random_date(5),
       requested_principle: (50000 + rand(750000)),
       requested_term_months: get_random_terms_length,
+      loan_mini_score: rand(),
       business_id: business.id)
     applications << application
   end
