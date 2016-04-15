@@ -7,18 +7,19 @@ class SocialMediaPresence < ActiveRecord::Base
 	belongs_to :business_owner
 
   #
+  # In effort to make this model extensible as possible, introduce
+  # social_network enum to capture various social media outlets
+  # whose implementations can be added in future.
+  #
+  enum social_network: [ :facebook, :linkedin, :yelp ]
+
+  #
   # Validations (very minimal for implementation)
   #
   validates :uid, presence: true
   validates :provider, presence: true
+  validates :social_media_site, presence: true, inclusion: { in: social_networks.keys }
   validate :mutually_exclusive_belongs_to_relationship
-
-  #
-  # In effort to make this model extensible as possible, introduce
-  # social_media_site enum to capture various social media outlets
-  # whose implementations can be added in future.
-  #
-  enum social_media_site: [ :facebook, :linkedin, :yelp ]
 
   #
   # Custom validation to ensure that SocialMediaPresence is associated

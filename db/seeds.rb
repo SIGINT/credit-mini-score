@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-NUM_BUSINESSES = 6
-NUM_LOAN_APPLICATIONS = 12
+NUM_BUSINESSES = 12
+NUM_LOAN_APPLICATIONS = 24
 
 CITY_STATES = [["Seattle", "WA"], ["New York", "NY"], ["San Diego", "CA"], ["Boston", "MA"], ["Austin", "TX"]]
 BUSINESS_URLS = ["http://www.therhinoroomseattle.com/", "http://steelcactuspgh.com/", "http://www.mariospgh.com/"]
@@ -47,6 +47,19 @@ end
 #
 def get_random_business_url
   BUSINESS_URLS[rand(BUSINESS_URLS.size)]
+end
+
+#
+# Create a SocialMediaPresence (Facebook) to be associated with specified business
+#
+def create_facebook_presence(business)
+  social_media_presence = SocialMediaPresence.create(
+    social_media_site: :facebook,
+    uid: (50000 + rand(9999999)),
+    num_connections: rand(500),
+    provider: 'facebook',
+    business_id: business.id)
+  social_media_presence
 end
 
 #
@@ -102,6 +115,7 @@ def create_businesses_and_owners
     business = create_business
     num_owners = (1 + rand(5))
     create_owners(num_owners, business)
+    create_facebook_presence(business)
     businesses << business
   end
   businesses
