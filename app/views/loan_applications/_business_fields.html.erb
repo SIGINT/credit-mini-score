@@ -1,3 +1,7 @@
+<!--
+    PARTIAL CONTAINING FORM FIELDS FOR BUSINESS
+    (rendered as part of LoanApplication form)
+-->
 <%= f.form_group do %>
   <%= f.fields_for @business do |bf| %>
     <%= bf.text_field :legal_name, hide_label: true, placeholder: 'Legal Name' %>

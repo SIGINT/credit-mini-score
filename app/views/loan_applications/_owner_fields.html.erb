@@ -1,3 +1,7 @@
+<!--
+    PARTIAL CONTAINING FORM FIELDS FOR BUSINESS_OWNER
+    (rendered as part of LoanApplication form)
+-->
 <%= f.form_group do %>
   <%= f.fields_for @owner do |of| %>
     <%= of.text_field :first_name, hide_label: true, placeholder: 'First Name' %>

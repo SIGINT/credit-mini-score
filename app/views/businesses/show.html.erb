@@ -3,6 +3,9 @@
   <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
 </div>
 
+<!--
+  BUSINESS INFORMATION
+-->
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:legal_name) %>:</strong></dt>
   <dd><%= @business.legal_name %></dd>
@@ -21,6 +24,9 @@
 </dl>
 <hr>
 
+<!--
+  BUSINESS OWNERS TABLE
+-->
 <h3>Ownership</h3>
 <table class="table table-striped">
   <thead>

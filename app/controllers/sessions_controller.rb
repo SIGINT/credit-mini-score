@@ -1,6 +1,15 @@
 class SessionsController < ApplicationController
 
+  #
+  # Ideally, we'd have a SessionsController that persists data to a
+  # Users table, but for simplicity we're only interested in storing
+  # the omniauth data somewhere - store it in session hash to keep simple.
+  #
+
   def new
+    #
+    # NO-OP for simplicity
+    #
   end
 
   def create

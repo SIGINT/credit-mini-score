@@ -1,4 +1,3 @@
-<br/>
 <%= bootstrap_form_for(@application, layout: :inline) do |f| %>
 
   <% if @application.errors.any? %>
@@ -17,6 +16,9 @@
   <% end %>
   <br/>
 
+  <!--
+    LOAN APPLICATION FIELDS
+  -->
   <h3>Loan Information</h3>
   <%= f.form_group do %>
     <%= f.text_field :requested_principle, prepend: '$', append: '.00', hide_label: true, placeholder: 'Requested Principle' %>
@@ -24,11 +26,17 @@
   <% end %>
   <br/>
 
+  <!--
+    BUSINESS FIELDS
+  -->
   <h3>Business Information</h3>
   <%= render partial: 'business_fields', locals: { f: f } %>
   <br/>
   <br/>
 
+  <!--
+    BUSINESS OWNER FIELDS
+  -->
   <h3>Business Ownership</h3>
   <% for owner in @owners %>
     <%= render partial: 'owner_fields', locals: { f: f } %>
@@ -36,7 +44,6 @@
   <button type="button" class="btn btn-success btn-sm">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add'l Owner
   </button>
-  <br/>
   <br/>
 
   <%= f.form_group do %>
