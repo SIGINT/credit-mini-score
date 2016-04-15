@@ -1,21 +1,24 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'pg'
+gem 'jquery-rails'
+
 gem 'sass-rails', '~> 5.0'
+gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'sprockets-rails'
+gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-gem 'jquery-rails'
+gem 'koala', '~> 2.2'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'therubyracer'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Use postgres database engine
+gem 'pg'
 
 # Date/Time validation for Rails 4
 gem 'validates_timeliness', '~> 4.0'
@@ -23,7 +26,7 @@ gem 'validates_timeliness', '~> 4.0'
 # Ruby web-crawling gem
 gem 'mechanize'
 
-#
+# Required for Facebook authentication
 gem 'omniauth-facebook'
 
 # Protects sensitive environment variables
