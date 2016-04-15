@@ -1,5 +1,7 @@
 class LoanApplicationsController < ApplicationController
 
+  include LoanApplicationsHelper
+
   around_filter :catch_not_found
 
   #
@@ -20,16 +22,38 @@ class LoanApplicationsController < ApplicationController
     @application.business = @business
     @application.application_date = Date.today
 
+    # Set if Facebook session active
+    omniauth_hash = session[:omniauth]
+
     respond_to do |format|
 
       #
-      # Attempt to save LoanApplication, Business, and BusinessOwner records.
+      # Attempt to save Business and BusinessOwner records.
       #
-      app_saved = @application.save
       business_saved = @business.save
       owner_saved = @owner.save
 
+      #
+      # Build and save SocialMediaPresence if connected/authenticated with Facebook
+      #
+      if !omniauth_hash.nil?
+        @social_media_presence = build_social_media_presence_for_business(omniauth_hash, @business)
+
+        if @social_media_presence.save!
+          @application.loan_mini_score = compute_credit_mini_score(@business)
+          puts "SAVED successfully"
+        else
+          puts "SAVED UNSUCCESSFULLY"
+        end
+      end
+
+      #
+      # Finally, attempt to save LoanApplication record.
+      #
+      app_saved = @application.save
+
       if (app_saved && business_saved && owner_saved)
+
         flash[:success] = 'Loan application was successfully submitted.'
         format.html { redirect_to @application }
         format.json { render :show, status: :created, location: @application }

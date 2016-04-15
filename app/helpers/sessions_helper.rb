@@ -6,4 +6,5 @@ module SessionsHelper
   def connected_to_fb?
     session[:omniauth].nil?
   end
+
 end

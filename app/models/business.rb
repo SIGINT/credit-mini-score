@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   # Relationships
 	#
   has_many :business_owners
-	has_many :social_media_presence
+	has_many :social_media_presences
 
   #
   # Validations (very minimal for implementation)
