@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [ :get, :post ]
   match 'auth/failure', to: 'loan_applications#index', via: [ :get, :post ]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [ :get, :post ]
+  match 'logout', to: 'sessions#destroy', as: 'logout', via: [ :get, :post ]
 
   resources :loan_applications, path: :applications
 
